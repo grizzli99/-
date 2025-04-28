@@ -1,0 +1,260 @@
+
+<!DOCTYPE html>
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<title>צמר שטיחים יפים</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<style>
+    body { font-family: 'Heebo', sans-serif; background: #083029; color: #3F0D1F; margin: 0; }
+    .header { background: #083029; text-align: center; padding: 20px; }
+    .header img { height: 60px; }
+    .wrapper { background: #E9E3D9; max-width: 600px; margin: auto; padding: 20px; border-radius: 0 0 20px 20px; }
+    label { display: block; margin-top: 10px; font-weight: bold; }
+    input, select, button {
+      width: 100%; padding: 10px; margin-top: 5px;
+      border: 1px solid #ccc; border-radius: 8px; font-size: 16px; box-sizing: border-box;
+    }
+    .orange-button {
+      background: #EF9A3F; color: white; font-weight: bold;
+      margin-top: 20px; border: none; cursor: pointer;
+    }
+    .carpet-block { background: #fff; padding: 15px; border-radius: 10px; margin-top: 20px; }
+    .mini-price { color: #9E2605; font-weight: bold; margin-top: 10px; }
+    .result { background: #fffbe6; padding: 15px; border: 2px solid #f7d486; border-radius: 10px; margin-top: 20px; }
+</style>
+</head>
+<body>
+<div class="header">
+  <img src="data:image/webp;base64,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" alt="צמר לוגו"/>
+</div>
+
+<div class="wrapper">
+  
+<div id="carpetBlocks">
+  <div class="carpet-block" data-index="1">
+    <label>אורך (ס"מ):</label>
+    <input type="number" class="length" step="1">
+
+    <label>רוחב (ס"מ):</label>
+    <input type="number" class="width" step="1">
+
+    <label>שיטת ניקוי:</label>
+    <select class="method">
+      <option value="machine">עבודת מכונה</option>
+      <option value="hand">עבודת יד</option>
+    </select>
+<div class="mini-price" style="margin-top: 5px; color: #9E2605; font-weight: bold;">עלות שטיח: ₪ 0.00</div>
+  </div>
+</div>
+<button type="button" id="addCarpetButton" class="orange-button" style="margin-top: 10px;">+ הוסף שטיח</button>
+<div style="margin-top: 20px;">
+  <label>בחירת סניף או משלוח:</label>
+  <select id="delivery" onchange="toggleCityField()">
+    <option value="self">סניף</option>
+    <option value="delivery">משלוח</option>
+  </select>
+</div>
+
+<div id="cityContainer" style="display:none; position: relative;">
+  <label>בחר עיר:</label>
+  <input id="city" type="text" placeholder="הכנס עיר" autocomplete="off">
+  <div id="citySuggestions" style="position: absolute; top: 100%; right: 0; left: 0; background: white; border: 1px solid #ccc; border-top: none; z-index: 1000; display: none; max-height: 150px; overflow-y: auto; font-size: 16px;"></div>
+</div>
+
+<button class="orange-button" onclick="calculateAll()">חשב הכל</button>
+
+<div id="result" class="result" style="display:none;"></div>
+
+
+    <div id="result" class="result" style="display:none;"></div>
+  </div>
+</div>
+
+
+
+
+<script>
+const freeCities = [
+  "תל אביב", "רמת גן", "גבעתיים", "חולון", "בת ים", "בני ברק", "פתח תקווה",
+  "ראשון לציון", "הרצליה"
+];
+
+const cities = [
+  "תל אביב", "רמת גן", "גבעתיים", "חולון", "בת ים", "בני ברק", "פתח תקווה",
+  "ראשון לציון", "הרצליה", "אשדוד", "חיפה", "ירושלים", "נתניה", "מודיעין", "רחובות"
+];
+
+let carpetCount = 1;
+
+document.getElementById('addCarpetButton').addEventListener('click', function() {
+  if (carpetCount >= 5) return;
+  carpetCount++;
+  const carpetBlocks = document.getElementById('carpetBlocks');
+  const newBlock = document.createElement('div');
+  newBlock.className = 'carpet-block';
+  newBlock.setAttribute('data-index', carpetCount);
+  newBlock.innerHTML = `
+    <label>אורך (ס"מ):</label>
+    <input type="number" class="length" step="1">
+
+    <label>רוחב (ס"מ):</label>
+    <input type="number" class="width" step="1">
+
+    <label>שיטת ניקוי:</label>
+    <select class="method">
+      <option value="machine">עבודת מכונה</option>
+      <option value="hand">עבודת יד</option>
+    </select>
+    <div class="mini-price" style="margin-top: 5px; color: #9E2605; font-weight: bold;">עלות שטיח: ₪ 0.00</div>
+  `;
+  carpetBlocks.appendChild(newBlock);
+  setupListeners(newBlock);
+});
+
+function setupListeners(block) {
+  const inputs = block.querySelectorAll('.length, .width, .method');
+  inputs.forEach(input => {
+    input.addEventListener('input', () => updateMiniPrice(block));
+  });
+}
+
+function updateMiniPrice(block) {
+  let lengthCm = parseFloat(block.querySelector('.length').value) || 0;
+  let widthCm = parseFloat(block.querySelector('.width').value) || 0;
+  let method = block.querySelector('.method').value;
+  let miniPriceDiv = block.querySelector('.mini-price');
+
+  let lengthM = lengthCm / 100;
+  let widthM = widthCm / 100;
+  let area = lengthM * widthM;
+  if (area < 1) area = 1;
+
+  let pricePerSqM = method === 'machine' ? 95 : 135;
+  let basePrice = area * pricePerSqM;
+
+  if (lengthCm >= 250 || widthCm >= 350) {
+    basePrice *= 1.25;
+  }
+
+  miniPriceDiv.textContent = `עלות שטיח: ₪ ${formatNumber(basePrice)}`;
+}
+
+document.querySelectorAll('.carpet-block').forEach(block => {
+  setupListeners(block);
+});
+
+function toggleCityField() {
+  const deliveryType = document.getElementById('delivery').value;
+  const cityContainer = document.getElementById('cityContainer');
+  if (deliveryType === 'delivery') {
+    cityContainer.style.display = 'block';
+  } else {
+    cityContainer.style.display = 'none';
+  }
+}
+
+function calculateAll() {
+  let carpetBlocks = document.querySelectorAll('.carpet-block');
+  let totalCarpetPrice = 0;
+
+  carpetBlocks.forEach(block => {
+    let lengthCm = parseFloat(block.querySelector('.length').value) || 0;
+    let widthCm = parseFloat(block.querySelector('.width').value) || 0;
+    let method = block.querySelector('.method').value;
+    
+    let lengthM = lengthCm / 100;
+    let widthM = widthCm / 100;
+    let area = lengthM * widthM;
+    if (area < 1) area = 1;
+
+    let pricePerSqM = method === 'machine' ? 95 : 135;
+    let basePrice = area * pricePerSqM;
+
+    if (lengthCm >= 250 || widthCm >= 350) {
+      basePrice *= 1.25;
+    }
+
+    totalCarpetPrice += basePrice;
+  });
+
+  let delivery = document.getElementById('delivery').value;
+  let city = document.getElementById('city').value.trim();
+  
+  let discount = 0;
+  let deliveryPrice = 0;
+  let discountText = '';
+  let deliveryText = '';
+
+  if (delivery === 'self') {
+    if (totalCarpetPrice >= 550) {
+      discount = 0.1 * totalCarpetPrice;
+      discountText = `<div>הנחה (10%): ‎-₪ ${formatNumber(discount)}</div>`;
+    }
+    deliveryText = '';
+  } else if (delivery === 'delivery') {
+    if (freeCities.includes(city)) {
+      deliveryPrice = 0;
+    } else {
+      deliveryPrice = 200;
+    }
+    deliveryText = `<div>עלות משלוח: ₪ ${formatNumber(deliveryPrice)}</div>`;
+  }
+
+  let finalPrice = totalCarpetPrice - discount + deliveryPrice;
+
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('result').innerHTML = `
+    <div>עלות שטיחים: ₪ ${formatNumber(totalCarpetPrice)}</div>
+    ${discountText}
+    ${deliveryText}
+    <div><strong>סכום סופי: ₪ ${formatNumber(finalPrice)}</strong></div>
+  `;
+}
+
+function formatNumber(num) {
+  return num.toLocaleString('he-IL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+// Autocomplete city logic
+const cityInput = document.getElementById('city');
+const citySuggestions = document.getElementById('citySuggestions');
+
+cityInput.addEventListener('input', function() {
+  const value = this.value.trim();
+  citySuggestions.innerHTML = '';
+  if (value.length === 0) {
+    citySuggestions.style.display = 'none';
+    return;
+  }
+  const filtered = cities.filter(city => city.includes(value));
+  if (filtered.length === 0) {
+    citySuggestions.style.display = 'none';
+    return;
+  }
+  filtered.forEach(city => {
+    const div = document.createElement('div');
+    div.textContent = city;
+    div.style.padding = '8px';
+    div.style.cursor = 'pointer';
+    div.addEventListener('click', function() {
+      cityInput.value = this.textContent;
+      citySuggestions.style.display = 'none';
+    });
+    citySuggestions.appendChild(div);
+  });
+  citySuggestions.style.display = 'block';
+});
+
+document.addEventListener('click', function(e) {
+  if (!cityInput.contains(e.target) && !citySuggestions.contains(e.target)) {
+    citySuggestions.style.display = 'none';
+  }
+});
+</script>
+</body>
+
+
+
+
+</html>
