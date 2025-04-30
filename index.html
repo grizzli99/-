@@ -1,0 +1,1737 @@
+
+<!DOCTYPE html>
+
+<html dir="rtl" lang="he">
+<head>
+<meta charset="utf-8"/>
+<title>צמר שטיחים יפים</title>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<link href="https://fonts.googleapis.com/css2?family=Secular+One&amp;display=swap" rel="stylesheet"/>
+<style>
+    body { font-family: 'Heebo', sans-serif; background: #083029; color: #3F0D1F; margin: 0; }
+    .header { background: #083029; text-align: center; padding: 20px; }
+    .header img { height: 60px; }
+    .calculator-title {
+        font-family: 'Secular One', 'Heebo', sans-serif;
+        text-align: center;
+        color: #EF9A3F;
+        margin-top: 20px;
+        margin-bottom: 20px;
+        font-size: 36px;
+        font-weight: 800;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.25);
+    }
+    .wrapper {
+        background: #E9E3D9;
+        max-width: 100vw; padding: 0 5px;
+        margin: auto;
+        padding: 20px;
+        border-radius: 0 0 20px 20px;
+    }
+    button {
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        color: white;
+    }
+    #startScreen {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 10px;
+        height: 400px;
+        margin-bottom: 30px;
+    }
+    .tile-large {
+        grid-row: 1 / span 2;
+        grid-column: 1 / 2;
+        font-size: 30px;
+        background: #EF9A3F;
+    }
+    .tile-small-1 {
+        background: #9E2605;
+        font-size: 24px;
+    }
+    .tile-small-2 {
+        background: #3F0D1F;
+        font-size: 24px;
+    }
+    .tile-button {
+        width: 100%;
+        height: 100%;
+    }
+
+input[type="tel"].length-repair, input[type="tel"].width-repair {
+  border: 2px solid #ccc;
+  border-radius: 12px;
+  height: 60px;
+  font-size: 20px;
+  text-align: center;
+  font-weight: bold;
+  color: #3F0D1F;
+}
+
+
+.collapsible-body {
+  display: none;
+  padding: 10px 0;
+}
+
+.collapsible-label.active + .collapsible-body {
+  display: block;
+}
+
+.collapsible-label {
+  cursor: pointer;
+  font-weight: bold;
+  background: #9E2605; /* Новый бордовый цвет */
+  padding: 10px;
+  border-radius: 8px;
+  display: block;
+  margin-top: 15px;
+  color: white;
+  transition: background 0.3s;
+ text-align: center;}
+
+.collapsible-label:hover {
+  background: #b83214; /* Светлее при наведении */
+}
+
+
+.repair-groups-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.repair-groups-grid > .repair-group:last-child {
+  max-width: 100%;
+}
+
+.repair-groups-grid > .repair-group {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+.repair-group .collapsible-label {
+  cursor: pointer;
+  font-weight: bold;
+  background: #9E2605; /* Новый бордовый цвет */
+  padding: 10px;
+  border-radius: 8px;
+  display: block;
+  margin-top: 15px;
+  color: white;
+  transition: background 0.3s;
+ text-align: center;}
+.repair-group .collapsible-body {
+  padding: 10px;
+  background: #fdf9f6;
+  border-radius: 0 0 10px 10px;
+}
+
+
+
+.repair-group {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+
+.collapsible-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.collapsible-label.active + .collapsible-body {
+  max-height: 1000px;
+}
+
+
+.repair-group {
+  border: none;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.option-card label {
+  height: 80px;
+overflow: hidden;
+}
+
+.repair-groups-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-top: 20px;
+}
+
+.repair-group .collapsible-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  font-size: 18px;
+  background: #9E2605;
+  border-radius: 12px;
+  color: #fff;
+  font-weight: bold;
+  transition: background 0.3s;
+  text-align: center;
+  padding: 0 10px;
+}
+
+.repair-group .collapsible-label:hover {
+  background: #b83214;
+}
+
+.back-button {
+  cursor: pointer;
+  font-size: 18px;
+  font-weight: bold;
+  color: #083029;
+  background: #EF9A3F;
+  padding: 12px 18px;
+  border-radius: 12px;
+  display: inline-block;
+  margin-bottom: 15px;
+}
+
+.top-back-button {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #EF9A3F;
+  text-decoration: none;
+  z-index: 1000;
+}
+
+.top-back-button {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 26px;
+  font-weight: bold;
+  color: #EF9A3F;
+  text-decoration: none;
+  z-index: 1000;
+}
+</style>
+<style>
+    body { font-family: 'Heebo', sans-serif; background: #083029; color: #3F0D1F; margin: 0; }
+    .calculator-title {
+      display: none;
+    }
+    .wrapper {
+      background: #E9E3D9;
+      max-width: 100vw; padding: 0 5px;
+      margin: auto;
+      padding: 20px;
+      border-radius: 0 0 20px 20px;
+    }
+    label {
+      display: block;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 5px;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    .orange-button {
+      background: #EF9A3F;
+      color: white;
+      font-weight: bold;
+      margin-top: 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    .red-button {
+      background: #9E2605;
+      color: white;
+      font-weight: bold;
+      margin-top: 20px;
+      border: none;
+      cursor: pointer;
+      border-radius: 10px;
+    }
+    .carpet-block {
+      background: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+    .dimension-row {
+      display: flex; align-items: stretch;
+      gap: 10px;
+      justify-content: space-between;
+    }
+    .dimension {
+      flex: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;
+    }
+    .service-row {
+      display: flex; align-items: stretch;
+      gap: 10px;
+      margin-top: 10px;
+      align-items: stretch;
+    }
+    .service-block {
+      flex: 1; display: flex; flex-direction: column; justify-content: flex-start; align-items: flex-start;
+      background: #f9f9f9;
+      padding: 10px;
+      border-radius: 10px;
+      display: flex; align-items: stretch;
+      flex-direction: column;
+      justify-content: flex-start;
+    }
+    .option-card {
+      position: relative;
+      margin: 8px 0;
+    }
+    .option-card input[type="radio"],
+    .option-card input[type="checkbox"] {
+      display: none;
+    }
+    .option-card label {
+      display: flex; align-items: stretch;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100%;
+      min-height: 50px;
+      white-space: normal;
+      overflow: hidden;
+      padding: 4px 6px;
+      background: #fff;
+      border: 2px solid #ccc;
+      border-radius: 10px;
+      font-size: 15px;
+      font-weight: bold;
+      text-align: center;
+      cursor: pointer;
+      transition: 0.3s;
+      box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+     text-align: center;}
+    .option-card input:checked + label {
+      border-color: #9E2605;
+      background: #fff1f1;
+    }
+    .option-card .price {
+      display: block;
+      font-size: 14px;
+      color: #EF9A3F;
+      margin-top: 2px;
+    }
+    .result {
+      background: #fffbe6;
+      padding: 15px;
+      border: 2px solid #f7d486;
+      border-radius: 10px;
+      margin-top: 20px;
+    }
+</style>
+<style>
+#mainContent .wrapper {
+  max-width: 1300px;
+}
+</style><style>
+#mainContent {
+  background: #E9E3D9;
+  width: 100%;
+  max-width: 1300px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 0 0 20px 20px;
+  box-sizing: border-box;
+}
+</style>
+<style>
+#repairBlockCombined .collapsible-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+#repairBlockCombined .collapsible-label.active + .collapsible-body {
+  max-height: 1000px;
+}
+</style>
+
+<style>
+.collapsible-body {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s ease;
+}
+.collapsible-label.active + .collapsible-body {
+  max-height: 1000px;
+}
+</style>
+
+
+<style>
+@media screen and (min-width: 768px) {
+  .wrapper, #mainContent {
+    max-width: 1100px;
+    margin: auto;
+    padding: 30px;
+  }
+
+  #startScreen {
+    grid-template-columns: 2fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    height: 500px;
+    gap: 20px;
+  }
+
+  .tile-large, .tile-small-1, .tile-small-2 {
+    font-size: 32px;
+    border-radius: 16px;
+  }
+
+  .tile-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    font-size: 26px;
+  }
+
+  .calculator-title {
+    font-size: 42px;
+  }
+
+  input, select, button {
+    font-size: 18px;
+  }
+
+  .dimension-row, .service-row {
+    flex-wrap: nowrap;
+  }
+
+  .repair-group .collapsible-label {
+    font-size: 20px;
+    height: 64px;
+  }
+
+  .option-card label {
+    font-size: 17px;
+  }
+
+  .top-back-button {
+    font-size: 30px;
+  }
+}
+</style>
+
+
+<style>
+.top-back-button {
+  position: fixed !important;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #EF9A3F;
+  text-decoration: none;
+  z-index: 9999;
+  background: #E9E3D9;
+  padding: 6px 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+</style>
+
+
+<style>
+.top-back-button {
+  position: fixed !important;
+  top: 20px;
+  left: 20px;
+  font-size: 28px;
+  font-weight: bold;
+  color: #EF9A3F !important;
+  text-decoration: none;
+  z-index: 9999;
+  background: #083029 !important;
+  padding: 6px 12px;
+  border-radius: 10px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+}
+</style>
+
+</head>
+<body>
+<div class="header">
+<a class="top-back-button" onclick="goBackToStart()">←</a>
+<img alt="צמר לוגו" src="data:image/webp;base64,UklGRlARAABXRUJQVlA4WAoAAAAQAAAAKwEAhwAAQUxQSL8OAAABt8egbSRH5/CHfe0LgIjI4e0ga57mLrLJnDfyF3jDtu2QXmvb1rgzZpLhkZEetm3btm3btm3btm3bHj3sMTo5/4/R3VV1nlWpa/6M6L9ESZLrttkSEwh+za5I4A6fAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAzLHbRP9Hafdw5w6T1U4WgyscxNRrl0v9YAjhnzt3rJeJ9T+5qrqWXghHlAk9MoQQQgjtu7eapC5Gaz4fwqtJ+M54vIxF6+gQwt3Dy0tk+xBCz8Sfd2xRBz++9tNdGUyVAHDWEH7YJLmplbs8fbZgaZncH0LomegsAjdtO+lYPnq8J4AU6X/QwbtuZFpXzTE9rnYuKZRJerAzf/zaLSYYa0erP5Th/vR4xmO6+X7YMKmvNzNsXVTi+/yJX27edKysX1Z6ONP6e/EVVgbhVROmM3Zxpq9XZiojmM4dVGzi95vWGz+9h36TNpvNZrPZbDabzWaz2Ww2m81ms9lsNpvNZrPZbI7qHwG97CN5xieP9fhOh7Bncv1UsWze7at3D10zfawThxBC4Ylfr14/9SLQ+Krdbrfb7Xa73W632+12u91ut9vtdrvdbrfb7Xb795HFR/flu44N/sgcxsvS3E6z5Ds7Nrl2CCHETVyz8bCk+iuEEGuk6Ia13N0ZhKlWstlyIb/dIEEo/b8qYO2BCRPriQSpfn/Z+kPT6dt4E38V+2fxO4ohvhPn8P0CmJeMGx1KMXNfL1qF9/l3y9VrjqiOCo0KM0aVmMcWy3utyEwOKmpuj5TaM4SQaOKny9YdVk0tcUcEY8zjPFdR0EvHy4ikyJ1Q3N3Vg9LpsRBCz0SKReDCtYZUTgvfEMV4SoS/jwuTfhOxpY74LcLeW7OkuqYIIYTiE8Wer4vXHFIlLXBTJOObEXMxrBf+ryjqs1H+Rm+c7BgohOITxe+Zy1caUBHNfVM85KjC1W8c65erFUM9LdbgqWn0aAihjIkvLlxpSPma55oU/tYu3H/G0l4wTgHS9eIdPpyi954ohBBKmvjqnNUHlqp5r0hj7ryCYR0fhdt9epE/OWWSPWCZeO0WQihx4vPTVixFnRtnzqx+MPkXOtBJgM/KK0TfS2Ny3yQ/Xe7ER+cs1yikuPWbWS9JZ2vMJIWy+iQN8SerZpJencrlDZHFxWQhhFD6xOV5SlBNz3t6UlObFsnqhGTIZ2eUazunc/nBUoWUQV+GirRyqfVbYlPnFPmNCZk/XKGbdL6UNl+P0tOV0M0RqoSp1wpE9VGHOt1k52Ee58c4zrzDoeljrmaopKr2mjp/LvUyvjwPpMRcKe6n61CbdCWVVTan595vv5SMx8Z95wt1qDPykvo0hBBCCCGEECpn8aF/r7j3daj3cpI6udLXj0PjtG81Vb3opsg5Aaq05ukpgAu3/PWoDbOr30pfu0Vek4aKqsJf6H9rSVeyXiG2r9q7JvVSli4v4UpZL0f3oF9WVBWMb7IsV6t9UV1NG61ljnqrHrVBpq1hF1T1Wo8Ex2bzH/N6DerUnKRW/+zfq6rWkkwscNJbdae38nIaelmo6FKcbGKxE96qkqp4tzVzY1r366r5+mNCpJ049v0a09r5IY13acV8LQ6pJ5Y+8cO60rlFMtrwhyrZOhDKmFj89HdqSW8WSmiiq6vj6nYoa2Kpsz4sW5XcHicpFtBmP1bE07f9UebECqd9VDfatGA8I6+vhqc5UfKg37Knf1krOrtwPFv8XgFL20D5E4NXPPeL+tArxcOZvPwu/hKoxsTAFc7/ZKzRT79GYk0dkc1WJU++Dr0TFVgEVr977NCJEz4ZybVJTDJT3lV2dV2twSLlKtniMSfXRJKdEZfMDn+Vd62vdOU3MulVQhO4cod3z0i21yKjmeru8raqymm9quv7Xbt554ukGxPdKe4yupTrDTWg1Icw4/bwDoitaDeMTmf6e8vQZDWrm+bIAn40kvCsBPnsnv5aTR0oZbW2ejbwcZGML6YIaNZHEl+nq1O1ds3zt0os5uRJItor74repepUp43IL/1jOTf4N6Mkk08n1Kga1W2FOuXYY5VTUqV0QLJrLTWhJH9k1WIGL4pkfStZTHM+leqb6lKj9ylqcKfKPKyHJSm71ab+LGxw4VjctRMmNfuVf8da+HpwfeqvkYUPn36KxD0vZVRL/hC99deqCju8JxL3zXRBbfRwitOyPkAnxPKOTJPSOLu8nqitqn+tE8u7aYqMJj7km1S/6/L6VMSN+WvZJzeznPJbyn699rX9L5G8r8bms9iVabvQq2peW7wRDzxJTjq5XeztyU83pqxzrfFCiljXiMhm82dLODS7tr611KNpYj2raDDDdul0sCW8mjWthZI9t68Xi2WKI78LoRxdWcua4+p0qY6ZqEiHfm47hNDzSv/l+tVUFydNdaP8LffWEEKJuq5uNfLEf9KmembeNvRQCKHc19S1qskP/z071MRHOIN2eC2E0nVjrWqT3lRLqPIn2O+TEEIFXtPUonq7xhL2gw27eS/679QoiVIEVqvTj6UP9dTucQihKq8Z6lQnpc/0rW7e5auj2+pQGTtoeUX+49V5LVKjGvF3+kzX7gaeuTo6rgaVAflC+kwf6gG+vCKju1cYUqc6NXmoP+7fAzzemCqMblqoZvuFVROH+s0h42UQH1r+6NK56rRn767Qkob67YHDMu0NKLm0+/OUGdXwudkrCUd7D8uLY/MyR78cMYo61ompUv1qv2EF8ni3tNHnB0xInSrTVJpUP92nUSiPRbtGJVTRuwyirtVMkeoX+xZO9f4yRi9ug/pVwsrus90bxQOZOv3oiXWpd50ZifjlznFP6rmJR/ctR91r4yjAj3aLLef/l9WapchmUepfU0XgfbBzv/hI9kk3unhualvZnB8Vhftwt35JMvkuzczos2eixpVgsXtvu/7ZbA8+tELhTFKMfj5mqmzS6d45dfoa1xZFwN7MrShmCSG8snNm5ZrZbyQoeMfPAz0mhHDLirWtmQqMtst3flF3R3TSHIMLhDJfhsOCj8WeXaTZ7esPXUAvbzeqf20qx9d7OVCvF6lSR/zVC7VMkVRuK+iv+4PYugjmphmV9aB61iWZSG9sVsj4nr1Uf4woAjVpRMG7TrEQX+vFulI9a8es0RYFjb/fy3VIMapTiha8Kxe0MG8G2FQ1rWl7e8RNi/peOwN4/GJYQwoVwjcuXjjDu3vJ7q3Rb8kz9knXorZ5BsdcB0+ZjXV7F29n2yyayx75vq6YJwtqqx2zESfKYFu6Giq0DCfQA9mYQ8ck4ByVZ+zqEJ7fNGfhHH1hZic0xS4vdeMuVDiYL7I9tc+YLRNpYAjvHdTMuvcXOOXH7l6ksr9ojVar1Wq1Wq1Wq9VqtVqtVqvVarVarVar1Wq1Wq3WZf9hZuXwdjzmlxPn7hkfrZeNMfyvri1hi8x+YbkbO6to8WBWyRr9fvR/j0J+l/v35QtkkYy74xshhF2qo/xSqNFoNBqNRqPRaDQajUaj0Wg0Go1Go9FoNBqNRqPxb/GU8zYBZ27XNCyvxNqtJ++PD86EmfWkH7aPSOa5HtKvDxlZqETu+sSzF86VHvh5GAAAAAAAAAAAAAAAYOzp5T7rvTmv6Ty8jYzbfEAE6exdmO/uOTRmu13yv3sh64MZv+avzOc8I9fxsO3XR0+dgvXKEF7ZqhDPjRmlS4fioaxaqM/QXb253tr7WF+2RDzrNPdn7N55221Go9GpiTp7yaFT9CnXIhm5LojZuhGe3mqycjxcl3Gw1KE4owth9JWLj+g7NMdVPV3n2x2Ky3pTvrukKuvxHurdMSijVl6vLxmOOuidTpJbdvaR0Z1cuyhKezou6Hwyf3Y2ph0ySvDx+5gfWOeeEDrb7f4ZpxElWphsvw+7+/OPej0cpW/49dm11zqd/7/vzfXAUi3026rTQayesf52tw99z7cu2xvrmCpsA+dnNc19iHLatHkv/L06h1zjbfxwtzpHH33VxMj93gohzF4RDwud82cI70JfNdFZ4Z55pkJb+96f/tut93GvdTer0mqy21wAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAD0cV0dAFZQOCBqAgAAMB4AnQEqLAGIAD6RRpxJJaQjISs/KACwEgljbt/wL0C8AfqBAgPwA/ADyAPoA5wD8APwAtf/KAvwD8ALkd0T5zqX/LuEM64+X5J3/N2gP0AxQH8A/gH7Ae//Tf41HYD6ta1rVRY82DowF+2AUqHufxj053P4x5LqNYBKY3t1xMZALyJjgE4zTI5tQYMfgehDCKzoXkTHAJxmmRzavN5kx/QfzjNMjm1ecAnGaZHNoXnXAIiXs0yObV5wCcZpkc2rv094gFqw8ZHNq84BOM0yObV5vVvOi8frFvEDh6aSkFyjqu/rC+8kefAnFyS84BOLiKpVsvcDStj+AAD+/PRegzGmnvt43w08a1719IuA5atd7A2Nj1mfpxs79Y3swxnW3ZlSuwjQshxDMaae+3jfDTxrXvX0i4n7K8nqg58HYPQWr4ezOXzChXdj+yVJcT1MGcIrjWWITnPQsBmNNPfbxvhp41r3r6RcT9leT1Qc+EKeMSMaqkyJfqYHJQN/TYcBbSbA8nGcYpWBDq2uKkQTjP6eJYVaEG0HTCLS9jAV3mw7mo9zsNLTUeootYyoy13zSF7h0mygWlMB15ZB0Po2gItHsgjtcC0MirTJPZfb4GuUAZmycDipyR7E02GrHoH//iemidMFPodKDDDp3ap/K2am9d5JXmtsjvCCrfZl/eJ7s+4VEqjc+uOwgd6A11g2f8pf//QxUQhhZor9BVccuKWaC7GtiVHNShY5OlZYfu4oNs/LLWedZv1PzsLEfbweRz43Z7cJYZA23Iqt7mfHHHTqAFIa9aUF+ZfWhR8e9MXG0qEy6J3NGoAA"/>
+</div>
+
+<div class="header" style="background:#083029; text-align:center; padding:20px; border-radius:0;">
+<h1 id="mainTitle" style="color:#EF9A3F; font-size:28px; margin:0;">מחשבון מחיר לניכוי ותיכון שטיח</h1>
+</div>
+<div class="wrapper" style="margin-top:0; border-radius:0;">
+<div id="startScreen">
+<button class="tile-button tile-large" onclick="chooseService('clean')">ניקוי שטיחים</button>
+<button class="tile-button tile-small-1" onclick="chooseService('repair')">תיקון שטיחים</button>
+<button class="tile-button tile-small-2" onclick="chooseService('both')">ניקוי ותיקון</button>
+</div>
+<div class="wrapper" id="mainContent" style="display:none;">
+<div class="container">
+<h1>מחשבון מחיר לניקוי ותיקון שטיח</h1>
+<div class="section">
+<label>אורך (ס"מ): <input name="length" type="number"/></label>
+<label>רוחב (ס"מ): <input name="width" type="number"/></label>
+</div>
+<div class="section">
+<div class="group-title">סוג שטיח:</div>
+<div class="grid">
+<label class="tile"><input name="type" type="radio" value="95"/> עבודת מכונה - ₪95 למ"ר</label>
+<label class="tile"><input name="type" type="radio" value="135"/> עבודת יד - ₪135 למ"ר</label>
+<label class="tile"><input name="type" type="radio" value="190"/> שטיח משי לסוגיו - ₪190 למ"ר</label>
+</div>
+</div>
+<div class="section">
+<div class="group-title">שירותים משלימים לניקוי:</div>
+<div class="grid">
+<label class="tile"><input name="clean_extra" type="checkbox" value="60"/> חיטוי ריח שתן - ₪60 למ"ר</label>
+<label class="tile"><input name="clean_extra" type="checkbox" value="750"/> טיפול בכתם - ₪750 סה"כ</label>
+<label class="tile"><input name="clean_extra" type="checkbox" value="50"/> תוספת להצפה - ₪50 למ"ר</label>
+</div>
+</div>
+<div class="section">
+<div class="group-title">עבודות תיקון שטיח:</div>
+<div class="group-title">עבודות סרטים</div>
+<label><input name="repair" type="checkbox" value="סרט לקנט"/> הדבקת סרט לקנט</label>
+<label><input name="repair" type="checkbox" value="סרט חם"/> הדבקת סרט חם לקנט</label>
+<div class="group-title">תיכון ורסטורציה</div>
+<label><input name="repair" type="checkbox" value="פרנזים"/> הלבנת פרנזים</label>
+<label><input name="repair" type="checkbox" value="ראש"/> חיזוק ראש</label>
+<div class="group-title">חיתוך ותפירה</div>
+<label><input name="repair" type="checkbox" value="פרעושים"/> חיתוך פרעושים / עש</label>
+<label><input name="repair" type="checkbox" value="שטיח ע" י"=""/> חיתוך שטיח ע"י / שאגי</label>
+<div class="group-title">עבודות פרנזים</div>
+<label><input name="repair" type="checkbox" value="חידוש פרנזים"/> חידוש פרנזים</label>
+<div class="group-title">תפירת פינות</div>
+<label><input name="repair" type="checkbox" value="פינות רגילה"/> תפירת פינות רגילה</label>
+<div class="group-title">עבודות גיזום</div>
+<label><input name="repair" type="checkbox" value="גיזום"/> גיזום שטיח</label>
+</div>
+</div>
+</div>
+</div>
+<script>
+function chooseService(service) {
+    document.getElementById('mainContent').style.display = 'none';
+    
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('cleaningCalculator').style.display = 'none';
+    document.getElementById('repairCalculator').style.display = 'none';
+
+    if (service === 'clean') { updateTitle("clean");
+    document.getElementById('startScreen').style.display = 'none';
+    document.getElementById('mainContent').style.display = 'none';
+    document.getElementById('repairCalculator').style.display = 'none';
+    document.getElementById('cleaningCalculator').style.display = 'block';
+
+    // Добавляем ковер только если ничего нет
+    const hasCarpet = document.querySelector('#carpetBlocks .carpet-block');
+    if (!hasCarpet) {
+        addCarpetBlock();
+    }
+} else if (service === 'repair') { updateTitle("repair");
+        document.getElementById('repairCalculator').style.display = 'block';
+        
+    } else if (service === 'both') { updateTitle("both");
+        document.getElementById('mainContent').style.display = 'block';
+        
+    
+    document.getElementById('mainContent').innerHTML = `
+<div id="carpetBlocks"></div>
+
+<div class="carpet-block">
+  <div class="dimension-row">
+    <div class="dimension">
+      <label>אורך (ס"מ):</label>
+      <input type="tel" pattern="[0-9]*" inputmode="numeric" class="length" step="1">
+    </div>
+    <div class="dimension">
+      <label>רוחב (ס"מ):</label>
+      <input type="tel" pattern="[0-9]*" inputmode="numeric" class="width" step="1">
+    </div>
+  </div>
+  <div class="service-row">
+    <div class="service-block">
+      <label>סוג שטיח:</label>
+      <div class="option-card">
+        <input type="radio" name="type-1" value="machine" id="type1-m">
+        <label for="type1-m">עבודת מכונה<br><span class="price"> ₪95 למ"ר</span></label>
+      </div>
+      <div class="option-card">
+        <input type="radio" name="type-1" value="hand" id="type1-h">
+        <label for="type1-h">עבודת יד<br><span class="price"> ₪135 למ"ר</span></label>
+      </div>
+      <div class="option-card">
+        <input type="radio" name="type-1" value="silk" id="type1-s">
+        <label for="type1-s">שטיח משי לסוגיו<br><span class="price"> ₪190 למ"ר</span></label>
+      </div>
+    </div>
+    <div class="service-block">
+      <label>שירות משלים נוסף:</label>
+      <div class="option-card">
+        <input type="checkbox" class="smellTreatment" id="smell-1">
+        <label for="smell-1">חיטוי ריח שתן<br><span class="price"> ₪60 למ"ר</span></label>
+      </div>
+      <div class="option-card">
+        <input type="checkbox" class="stainTreatment" id="stain-1">
+        <label for="stain-1">טיפול בכתם<br><span class="price"> ₪750 סה"כ</span></label>
+      </div>
+      <div class="option-card">
+        <input type="checkbox" class="floodAddition" id="flood-1">
+        <label for="flood-1">תוספת להצפה<br><span class="price"> ₪50 למ"ר</span></label>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="repairBlockCombined" style="margin-top:30px; background: #fff; padding: 20px; border-radius: 10px;">
+  <h3 style="text-align:center; margin-bottom:20px;">תיכון שטיח</h3>
+  <div class="repair-groups-grid">
+    <div class="repair-group"><label class="collapsible-label" for="toggle-group-0">עבודות סרטים</label><div class="collapsible-body">
+    <div class="option-card">
+    <input data-price="60" data-type="meter" id="tape1-both" type="checkbox"/>
+    <label for="tape1-both">הדבקת סרט / סרט חם לקנט<br/><span class="price">₪60 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="100" data-type="meter" id="tape2-both" type="checkbox"/>
+    <label for="tape2-both">סרט P.V.C תפור לשטיח בעבודת יד<br/><span class="price">₪100 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="75" data-type="meter" id="tape3-both" type="checkbox"/>
+    <label for="tape3-both">סרט חיבור סרט חם<br/><span class="price">₪75 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="100" data-type="meter" id="tape4-both" type="checkbox"/>
+    <label for="tape4-both">סרט לשטיח עבודת מכונה<br/><span class="price">₪100 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="100" data-type="meter" id="tape5-both" type="checkbox"/>
+    <label for="tape5-both">סרט יוטה<br/><span class="price">₪100 למ״ר</span></label>
+    </div>
+    </div></div>
+
+    <div class="repair-group"><label class="collapsible-label" for="toggle-group-3">תיכון ורסטורציה</label><div class="collapsible-body">
+    <div class="option-card">
+    <input data-price="360" data-type="meter" id="repair1-both" type="checkbox"/>
+    <label for="repair1-both">מתיחה<br/><span class="price">₪360 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="950" data-type="meter" id="repair2-both" type="checkbox"/>
+    <label for="repair2-both">רסטורציה צמר<br/><span class="price">₪950 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="1150" data-type="meter" id="repair3-both" type="checkbox"/>
+    <label for="repair3-both">רסטורציה משי<br/><span class="price">₪1150 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="280" data-type="meter" id="repair4-both" type="checkbox"/>
+    <label for="repair4-both">טיפול ברקע צהוב<br/><span class="price">₪280 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="350" data-type="meter" id="repair5-both" type="checkbox"/>
+    <label for="repair5-both">חיזוק ראש / מעוצר יד<br/><span class="price">₪350 למ״ר</span></label>
+    </div>
+    </div></div>
+
+    <div class="repair-group"><label class="collapsible-label" for="toggle-group-2">חיתוך ותפירה</label><div class="collapsible-body">
+    <div class="option-card">
+    <input data-price="75" data-type="meter" id="cut1-both" type="checkbox"/>
+    <label for="cut1-both">חיתוך פרעושים / עש<br/><span class="price">₪75 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="160" data-type="meter" id="cut2-both" type="checkbox"/>
+    <label for="cut2-both">חיתוך שטיח ע״י / שאגי ע״י / שאגי מכונה<br/><span class="price">₪160 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="35" data-type="meter" id="cut3-both" type="checkbox"/>
+    <label for="cut3-both">חיתוך שטיח רגל<br/><span class="price">₪35 למ״ר</span></label>
+    </div>
+    </div></div>
+
+    <div class="repair-group"><label class="collapsible-label" for="toggle-group-1">עבודות פרנזים</label><div class="collapsible-body">
+    <div class="option-card">
+    <input data-price="60" data-type="meter" id="fringe1-both" type="checkbox"/>
+    <label for="fringe1-both">הלבנת פרנזים בגלישת צבע<br/><span class="price">₪60 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="580" data-type="meter" id="fringe2-both" type="checkbox"/>
+    <label for="fringe2-both">פרנז עבודת יד / צמר / כותנה<br/><span class="price">₪580 למ״ר</span></label>
+    </div>
+    <div class="option-card">
+    <input data-price="780" data-type="meter" id="fringe3-both" type="checkbox"/>
+    <label for="fringe3-both">פרנז מקורי<br/><span class="price">₪780 למ״ר</span></label>
+    </div>
+    </div></div>
+
+    <div class="repair-group"><label class="collapsible-label" for="toggle-group-new">תפירת פינות</label><div class="collapsible-body">
+    <div class="option-card">
+    <input data-price="280" data-type="unit" id="cut4-both" type="checkbox"/>
+    <label for="cut4-both">תפירת 4 פינות עור<br/><span class="price">₪280 ליחידה</span></label>
+    </div></div></div>
+
+    <div class="repair-group"><label class="collapsible-label" for="toggle-group-4">עבודות גיזום</label><div class="collapsible-body">
+    <div class="option-card">
+    <input data-price="200" data-type="meter" id="trim1-both" type="checkbox"/>
+    <label for="trim1-both">גיזוז חוטים בולטים<br/><span class="price">₪200 למ״ר</span></label>
+    </div>
+    </div></div>
+  </div>
+</div>
+
+
+<div style="margin-top: 20px;">
+<label>בחרו סוג שירות:</label>
+<select id="delivery" onchange="toggleCityField()">
+<option value="self">איסוף עצמי מהסניף</option>
+<option value="delivery">שירות צמר עד הבית (כולל החזרה)</option>
+</select>
+</div><div id="errorMsg" style="display:none; color:red; font-weight:bold; margin-top: 10px; text-align: center;"></div>
+<div id="cityContainer" style="display:none; position: relative;">
+<label>בחר עיר:</label>
+<input autocomplete="off" id="city" placeholder="הכנס עיר" type="text"/>
+<div id="citySuggestions" style="position: absolute; top: 100%; right: 0; left: 0; background: white; border: 1px solid #ccc; border-top: none; z-index: 1000; display: none; max-height: 150px; overflow-y: auto; font-size: 16px;"></div>
+</div>
+<button class="red-button" onclick="calculateAll()">חשב מחיר</button>
+<div class="result" id="result" style="display:none;"></div>
+`;
+    setupCleaningCalculator("mainContent");
+    
+    setupCleaningCalculator("bothCleaningCalculator");
+        activateRepairToggles();
+    
+    }
+}</script>
+<div class="wrapper" id="cleaningCalculator" style="display:none;">
+<div id="carpetBlocks"></div>
+<div style="margin-top: 20px;">
+<label>בחרו סוג שירות:</label>
+<select id="delivery" onchange="toggleCityField()">
+<option value="self">איסוף עצמי מהסניף</option>
+<option value="delivery">שירות צמר עד הבית (כולל החזרה)</option>
+</select>
+</div><div id="errorMsg" style="display:none; color:red; font-weight:bold; margin-top: 10px; text-align: center;"></div>
+<button class="orange-button" id="addCarpetButton" onclick="addCarpetBlock()" type="button">+ הוסף שטיח נוסף</button><div id="cityContainer" style="display:none; position: relative;">
+<label>בחר עיר:</label>
+<input autocomplete="off" id="city" placeholder="הכנס עיר" type="text"/>
+<div id="citySuggestions" style="position: absolute; top: 100%; right: 0; left: 0; background: white; border: 1px solid #ccc; border-top: none; z-index: 1000; display: none; max-height: 150px; overflow-y: auto; font-size: 16px;"></div>
+</div>
+<button class="red-button" onclick="calculateAll()">חשב מחיר</button>
+<div class="result" id="result" style="display:none;"></div>
+</div><script>
+const freeCities = ["תל אביב", "רמת גן", "גבעתיים", "חולון", "בת ים", "בני ברק", "פתח תקווה", "ראשון לציון", "הרצליה"];
+const cities = [...freeCities, "אשדוד", "חיפה", "ירושלים", "נתניה", "מודיעין", "רחובות"];
+let carpetCount = 0;
+
+function addCarpetBlock() {
+  if (carpetCount >= 5) return;
+  carpetCount++;
+  const carpetBlocks = document.getElementById('carpetBlocks');
+  const newBlock = document.createElement('div');
+  newBlock.className = 'carpet-block';
+  newBlock.setAttribute('data-index', carpetCount);
+  newBlock.innerHTML = `
+    <div class="dimension-row">
+      <div class="dimension">
+        <label>אורך (ס"מ):</label>
+        <input type="tel" pattern="[0-9]*" inputmode="numeric" class="length" step="1">
+      </div>
+      <div class="dimension">
+        <label>רוחב (ס"מ):</label>
+        <input type="tel" pattern="[0-9]*" inputmode="numeric" class="width" step="1">
+      </div>
+    </div>
+    <div class="service-row">
+      <div class="service-block">
+        <label>סוג שטיח:</label>
+        <div class="option-card">
+          <input type="radio" name="type-${carpetCount}" value="machine" id="type${carpetCount}-m">
+          <label for="type${carpetCount}-m">עבודת מכונה<br><span class="price"> ₪95 למ"ר</span></label>
+        </div>
+        <div class="option-card">
+          <input type="radio" name="type-${carpetCount}" value="hand" id="type${carpetCount}-h">
+          <label for="type${carpetCount}-h">עבודת יד<br><span class="price"> ₪135 למ"ר</span></label>
+        </div>
+        <div class="option-card">
+          <input type="radio" name="type-${carpetCount}" value="silk" id="type${carpetCount}-s">
+          <label for="type${carpetCount}-s">שטיח משי לסוגיו<br><span class="price"> ₪190 למ"ר</span></label>
+        </div>
+      </div>
+      <div class="service-block">
+        <label>שירות משלים נוסף:</label>
+        <div class="option-card">
+          <input type="checkbox" class="smellTreatment" id="smell-${carpetCount}">
+          <label for="smell-${carpetCount}">חיטוי ריח שתן<br><span class="price"> ₪60 למ"ר</span></label>
+        </div>
+        <div class="option-card">
+          <input type="checkbox" class="stainTreatment" id="stain-${carpetCount}">
+          <label for="stain-${carpetCount}">טיפול בכתם<br><span class="price"> ₪750 סה"כ</span></label>
+        </div>
+        <div class="option-card">
+          <input type="checkbox" class="floodAddition" id="flood-${carpetCount}">
+          <label for="flood-${carpetCount}">תוספת להצפה<br><span class="price"> ₪50 למ"ר</span></label>
+        </div>
+      </div>
+    </div>`;
+  carpetBlocks.appendChild(newBlock);
+}
+
+
+
+
+
+
+
+
+function toggleCityField() {
+  const deliveryType = document.getElementById('delivery').value;
+  const cityContainer = document.getElementById('cityContainer');
+  cityContainer.style.display = deliveryType === 'delivery' ? 'block' : 'none';
+}
+
+
+
+
+
+
+function calculateAll() {
+  let totalCarpetPrice = 0;
+  let resultDetails = '';
+  let carpetIndex = 1;
+  let missingTypes = [];
+  let missingSizes = [];
+
+  document.getElementById('errorMsg').style.display = 'none';
+  document.getElementById('errorMsg').innerHTML = '';
+
+  
+const visibleBlocks = Array.from(document.querySelectorAll('.carpet-block')).filter(block => block.offsetParent !== null);
+visibleBlocks.forEach((block, index) => {
+
+    const lengthVal = block.querySelector('.length').value.trim();
+    const widthVal = block.querySelector('.width').value.trim();
+    const lengthCm = parseFloat(lengthVal);
+    const widthCm = parseFloat(widthVal);
+    const typeInput = block.querySelector('input[name^="type-"]:checked');
+
+    if (!lengthVal || !widthVal || isNaN(lengthCm) || isNaN(widthCm) || lengthCm <= 0 || widthCm <= 0) {
+      missingSizes.push(index + 1);
+    }
+
+    if (!typeInput) {
+      missingTypes.push(index + 1);
+    }
+
+    if (!typeInput || !lengthVal || !widthVal || isNaN(lengthCm) || isNaN(widthCm) || lengthCm <= 0 || widthCm <= 0) return;
+
+    const type = typeInput.value;
+    const typeLabel = typeInput.nextElementSibling.textContent.split('\n')[0];
+    let area = (lengthCm / 100) * (widthCm / 100);
+    if (area < 1) area = 1;
+
+    let pricePerSqM = 0;
+    if (type === 'machine') pricePerSqM = 95;
+    else if (type === 'hand') pricePerSqM = 135;
+    else if (type === 'silk') pricePerSqM = 190;
+
+    let basePrice = area * pricePerSqM;
+    if (area >= 8.75) basePrice *= 1.25;
+
+    let addonsPrice = 0;
+    const addonsList = [];
+
+    if (block.querySelector('.smellTreatment').checked) {
+      const price = area * 60;
+      addonsPrice += price;
+      addonsList.push('חיטוי ריח שתן <strong>₪' + formatNumber(price) + '</strong>');
+    }
+    if (block.querySelector('.floodAddition').checked) {
+      const price = area * 50;
+      addonsPrice += price;
+      addonsList.push('תוספת להצפה <strong>₪' + formatNumber(price) + '</strong>');
+    }
+    if (block.querySelector('.stainTreatment').checked) {
+      const price = 750;
+      addonsPrice += price;
+      addonsList.push('טיפול בכתם <strong>₪750.00</strong>');
+    }
+
+    const carpetTotal = basePrice + addonsPrice;
+    totalCarpetPrice += carpetTotal;
+
+    resultDetails += `<div><strong>שטיח ${carpetIndex}:</strong> ${typeLabel} – <strong>₪${formatNumber(basePrice)}</strong><br>`;
+    if (addonsList.length > 0) {
+      resultDetails += 'שירותים משלימים:<ul style="margin-top:0">';
+      addonsList.forEach(item => resultDetails += `<li>${item}</li>`);
+      resultDetails += '</ul>';
+    }
+    resultDetails += `סה"כ לשטיח: <strong>₪${formatNumber(carpetTotal)}</strong></div><hr style="margin:12px 0;">`;
+    carpetIndex++;
+  });
+
+  if (missingTypes.length || missingSizes.length) {
+    let msg = '';
+    if (missingTypes.length)
+      msg += 'לא נבחר סוג שטיח לשטיח מספר: ' + missingTypes.join(', ') + '<br>';
+    if (missingSizes.length)
+      msg += 'לא הוזן גודל לשטיח מספר: ' + missingSizes.join(', ');
+    const errorBox = document.getElementById('errorMsg');
+    errorBox.innerHTML = msg;
+    errorBox.style.display = 'block';
+    document.getElementById('result').style.display = 'none';
+    return;
+  }
+
+  
+  // --- Расчёт стоимости починки (repairBlockCombined) ---
+  const repairGroups = document.querySelectorAll('#repairBlockCombined .repair-group');
+  let repairArea = 0;
+  visibleBlocks.forEach((block) => {
+    const lengthVal = block.querySelector('.length').value.trim();
+    const widthVal = block.querySelector('.width').value.trim();
+    const lengthCm = parseFloat(lengthVal);
+    const widthCm = parseFloat(widthVal);
+    if (!isNaN(lengthCm) && !isNaN(widthCm) && lengthCm > 0 && widthCm > 0) {
+      let area = (lengthCm / 100) * (widthCm / 100);
+      if (area < 1) area = 1;
+      repairArea += area;
+    }
+  }); // либо 1м² либо ноль, если нет ковров
+  let repairPrice = 0;
+  const repairList = [];
+
+  repairGroups.forEach(group => {
+    group.querySelectorAll('input[type=checkbox]:checked').forEach(cb => {
+      const price = parseFloat(cb.dataset.price || "0");
+      const type = cb.dataset.type;
+      const label = cb.nextElementSibling;
+      const labelText = label ? label.innerText.split('\n')[0] : "שירות לא ידוע";
+
+      let itemTotal = 0;
+      if (type === "meter") itemTotal = repairArea * price;
+      else itemTotal = price;
+
+      repairPrice += itemTotal;
+      repairList.push(`<li>${labelText} – ₪${itemTotal.toFixed(2)}</li>`);
+    });
+  });
+
+  totalCarpetPrice += repairPrice;
+  if (repairList.length > 0) {
+    resultDetails += '<div><strong>שירותי תיקון:</strong><ul>' + repairList.join('') + '</ul></div><hr>';
+  }
+const delivery = document.getElementById('delivery').value;
+  const city = document.getElementById('city').value.trim();
+  let deliveryPrice = 0, discount = 0;
+
+  if (delivery === 'self') {
+    if (totalCarpetPrice >= 550) discount = 0.1 * totalCarpetPrice;
+  } else {
+    deliveryPrice = freeCities.includes(city) ? 0 : 200;
+  }
+
+  const finalPrice = totalCarpetPrice - discount + deliveryPrice;
+
+  resultDetails += `<div><strong>סכום לפני הנחה:</strong> <u>₪${formatNumber(totalCarpetPrice)}</u></div>`;
+  if (discount) resultDetails += `<div>הנחה (10%): ‎<span style="color:red;">-₪${formatNumber(discount)}</span></div>`;
+  if (delivery === 'delivery') resultDetails += `<div>עלות משלוח: <strong>₪${formatNumber(deliveryPrice)}</strong></div>`;
+
+  resultDetails += `
+    <div style="margin-top:10px; background: #FFF4CE; border: 2px solid #EF9A3F; padding: 10px; border-radius: 10px; text-align: center;">
+      <strong>סכום סופי לתשלום: <span style="font-size: 22px; color: #9E2605;">₪${formatNumber(finalPrice)}</span></strong>
+    </div>
+  `;
+
+  document.getElementById('result').style.display = 'block';
+  document.getElementById('result').innerHTML = resultDetails;
+}
+function formatNumber(num) {
+  return num.toLocaleString('he-IL', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+const cityInput = document.getElementById('city');
+const citySuggestions = document.getElementById('citySuggestions');
+cityInput.addEventListener('input', function () {
+  const value = this.value.trim();
+  citySuggestions.innerHTML = '';
+  if (!value) return citySuggestions.style.display = 'none';
+  const filtered = cities.filter(city => city.includes(value));
+  if (!filtered.length) return citySuggestions.style.display = 'none';
+  filtered.forEach(city => {
+    const div = document.createElement('div');
+    div.textContent = city;
+    div.style.padding = '8px';
+    div.style.cursor = 'pointer';
+    div.onclick = () => {
+      cityInput.value = city;
+      citySuggestions.style.display = 'none';
+    };
+    citySuggestions.appendChild(div);
+  });
+  citySuggestions.style.display = 'block';
+});
+document.addEventListener('click', e => {
+  if (!cityInput.contains(e.target) && !citySuggestions.contains(e.target))
+    citySuggestions.style.display = 'none';
+});
+</script>
+<div class="wrapper" id="repairCalculator" style="display:none;">
+<div id="repairBlocks"><div class="repair-block"><div class="dimension-row">
+<div class="dimension">
+<label>אורך (ס"מ):</label>
+<input class="length-repair" inputmode="numeric" pattern="[0-9]*" type="tel"/>
+</div>
+<div class="dimension">
+<label>רוחב (ס"מ):</label>
+<input class="width-repair" inputmode="numeric" pattern="[0-9]*" type="tel"/>
+</div>
+</div><div class="repair-groups-grid"><div class="repair-group"><label class="collapsible-label" for="toggle-group-0">עבודות סרטים</label><div class="collapsible-body">
+<div class="option-card">
+<input data-price="60" data-type="meter" id="tape1-1" type="checkbox"/>
+<label for="tape1-1">הדבקת סרט / סרט חם לקנט<br/><span class="price">₪60 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="100" data-type="meter" id="tape2-1" type="checkbox"/>
+<label for="tape2-1">סרט P.V.C תפור לשטיח בעבודת יד<br/><span class="price">₪100 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="75" data-type="meter" id="tape3-1" type="checkbox"/>
+<label for="tape3-1">סרט חיבור סרט חם<br/><span class="price">₪75 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="100" data-type="meter" id="tape4-1" type="checkbox"/>
+<label for="tape4-1">סרט לשטיח עבודת מכונה<br/><span class="price">₪100 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="100" data-type="meter" id="tape5-1" type="checkbox"/>
+<label for="tape5-1">סרט יוטה<br/><span class="price">₪100 למ״ר</span></label>
+</div>
+</div></div><div class="repair-group"><label class="collapsible-label" for="toggle-group-3">תיכון ורסטורציה</label><div class="collapsible-body">
+<div class="option-card">
+<input data-price="360" data-type="meter" id="repair1-1" type="checkbox"/>
+<label for="repair1-1">מתיחה<br/><span class="price">₪360 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="950" data-type="meter" id="repair2-1" type="checkbox"/>
+<label for="repair2-1">רסטורציה צמר<br/><span class="price">₪950 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="1150" data-type="meter" id="repair3-1" type="checkbox"/>
+<label for="repair3-1">רסטורציה משי<br/><span class="price">₪1150 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="280" data-type="meter" id="repair4-1" type="checkbox"/>
+<label for="repair4-1">טיפול ברקע צהוב<br/><span class="price">₪280 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="350" data-type="meter" id="repair5-1" type="checkbox"/>
+<label for="repair5-1">חיזוק ראש / מעוצר יד<br/><span class="price">₪350 למ״ר</span></label>
+</div>
+</div></div><div class="repair-group"><label class="collapsible-label" for="toggle-group-2">חיתוך ותפירה</label><div class="collapsible-body">
+<div class="option-card">
+<input data-price="75" data-type="meter" id="cut1-1" type="checkbox"/>
+<label for="cut1-1">חיתוך פרעושים / עש<br/><span class="price">₪75 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="160" data-type="meter" id="cut2-1" type="checkbox"/>
+<label for="cut2-1">חיתוך שטיח ע״י / שאגי ע״י / שאגי מכונה<br/><span class="price">₪160 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="35" data-type="meter" id="cut3-1" type="checkbox"/>
+<label for="cut3-1">חיתוך שטיח רגל<br/><span class="price">₪35 למ״ר</span></label>
+</div>
+</div></div><div class="repair-group"><label class="collapsible-label" for="toggle-group-1">עבודות פרנזים</label><div class="collapsible-body">
+<div class="option-card">
+<input data-price="60" data-type="meter" id="fringe1-1" type="checkbox"/>
+<label for="fringe1-1">הלבנת פרנזים בגלישת צבע<br/><span class="price">₪60 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="580" data-type="meter" id="fringe2-1" type="checkbox"/>
+<label for="fringe2-1">פרנז עבודת יד / צמר / כותנה<br/><span class="price">₪580 למ״ר</span></label>
+</div>
+<div class="option-card">
+<input data-price="780" data-type="meter" id="fringe3-1" type="checkbox"/>
+<label for="fringe3-1">פרנז מקורי<br/><span class="price">₪780 למ״ר</span></label>
+</div>
+</div></div><div class="repair-group"><label class="collapsible-label" for="toggle-group-new">תפירת פינות</label><div class="collapsible-body"><div class="option-card">
+<input data-price="280" data-type="unit" id="cut4-1" type="checkbox"/>
+<label for="cut4-1">תפירת 4 פינות עור<br/><span class="price">₪280 ליחידה</span></label>
+</div></div></div><div class="repair-group"><label class="collapsible-label" for="toggle-group-4">עבודות גיזום</label><div class="collapsible-body">
+<div class="option-card">
+<input data-price="200" data-type="meter" id="trim1-1" type="checkbox"/>
+<label for="trim1-1">גיזוז חוטים בולטים<br/><span class="price">₪200 למ״ר</span></label>
+</div>
+</div></div></div></div>
+</div>
+<button class="orange-button" id="addRepairButton" type="button">+ הוסף שטיח לתיקון</button>
+<div style="margin-top: 20px;">
+<label>בחרו סוג שירות:</label>
+<select id="delivery-repair" onchange="toggleCityFieldRepair()">
+<option value="self">איסוף עצמי מהסניף</option>
+<option value="delivery">שירות צמר עד הבית (כולל החזרה)</option>
+</select>
+</div>
+<div id="errorMsgRepair" style="display:none; color:red; font-weight:bold; margin-top: 10px; text-align: center;"></div>
+<div id="cityContainerRepair" style="display:none; position: relative;">
+<label>בחר עיר:</label>
+<input autocomplete="off" id="city-repair" placeholder="הכנס עיר" type="text"/>
+<div id="citySuggestionsRepair" style="position: absolute; top: 100%; right: 0; left: 0; background: white; border: 1px solid #ccc; border-top: none; z-index: 1000; max-height: 150px; overflow-y: auto; font-size: 16px;"></div>
+</div>
+<button class="red-button" onclick="calculateAllRepair()">חשב מחיר</button>
+<div class="result" id="resultRepair" style="display:none;"></div>
+</div>
+<script>
+// Здесь будет весь скрипт починки
+</script>
+<script>
+document.querySelectorAll('.collapsible-label').forEach(label => {
+  label.addEventListener('click', () => {
+    label.classList.toggle('active');
+  });
+});
+</script><script>
+function calculateAllRepair() {
+  const blocks = document.querySelectorAll('#repairCalculator .repair-block');
+  const resultBox = document.getElementById('resultRepair');
+  const errorBox = document.getElementById('errorMsgRepair');
+  let total = 0;
+  let resultDetails = '';
+  let missingSizes = [];
+
+  blocks.forEach((block, index) => {
+    const lengthEl = block.querySelector('.length-repair');
+    const widthEl = block.querySelector('.width-repair');
+    const length = parseFloat(lengthEl.value || "0");
+    const width = parseFloat(widthEl.value || "0");
+
+    if (!length || !width || length <= 0 || width <= 0) {
+      missingSizes.push(index + 1);
+      return;
+    }
+
+    const area = Math.max((length * width) / 10000, 1); // m², min 1
+    let blockTotal = 0;
+    const services = [];
+
+    block.querySelectorAll('input[type=checkbox]:checked').forEach(cb => {
+      const price = parseFloat(cb.dataset.price || "0");
+      const type = cb.dataset.type;
+      const label = cb.nextElementSibling;
+      const labelText = label ? label.innerText.split('\n')[0] : "שירות לא ידוע";
+
+      let itemTotal = 0;
+      if (type === "meter") itemTotal = area * price;
+      else itemTotal = price;
+
+      blockTotal += itemTotal;
+      services.push(`<li>${labelText} – ₪${itemTotal.toFixed(2)}</li>`);
+    });
+
+    resultDetails += `<div><strong>שטיח ${index + 1}:</strong><ul>${services.join('')}</ul><div>סה"כ לשטיח: ₪${blockTotal.toFixed(2)}</div></div><hr>`;
+    total += blockTotal;
+  });
+
+  if (missingSizes.length > 0) {
+    errorBox.innerHTML = 'לא הוזן גודל לשטיח מספר: ' + missingSizes.join(', ');
+    errorBox.style.display = 'block';
+    resultBox.style.display = 'none';
+    return;
+  }
+
+  errorBox.style.display = 'none';
+
+  const deliveryType = document.getElementById('delivery-repair').value;
+  const city = document.getElementById('city-repair').value.trim();
+  const freeCities = ["תל אביב", "רמת גן", "גבעתיים", "חולון", "בת ים", "בני ברק", "פתח תקווה", "ראשון לציון", "הרצליה"];
+  let deliveryPrice = 0;
+  let discount = 0;
+
+  if (deliveryType === 'delivery') {
+    deliveryPrice = freeCities.includes(city) ? 0 : 200;
+  } else {
+    if (total >= 550) discount = 0.1 * total;
+  }
+
+  const finalPrice = total - discount + deliveryPrice;
+
+  resultDetails += `<div><strong>סכום לפני הנחה:</strong> ₪${total.toFixed(2)}</div>`;
+  if (discount > 0) resultDetails += `<div>הנחה (10%): ‎<span style="color:red;">-₪${discount.toFixed(2)}</span></div>`;
+  if (deliveryPrice > 0) resultDetails += `<div>עלות משלוח: <strong>₪${deliveryPrice.toFixed(2)}</strong></div>`;
+  resultDetails += `<div style="margin-top:10px; background: #FFF4CE; border: 2px solid #EF9A3F; padding: 10px; border-radius: 10px; text-align: center;">
+    <strong>סכום סופי לתשלום: <span style="font-size: 22px; color: #9E2605;">₪${finalPrice.toFixed(2)}</span></strong>
+  </div>`;
+
+  resultBox.innerHTML = resultDetails;
+  resultBox.style.display = 'block';
+}
+</script><script>
+document.addEventListener("DOMContentLoaded", () => {
+  toggleCityFieldRepair();
+});
+</script>
+<script>
+function toggleCityFieldRepair() {
+  const deliveryType = document.getElementById('delivery-repair').value;
+  const cityContainer = document.getElementById('cityContainerRepair');
+  cityContainer.style.display = (deliveryType === 'delivery') ? 'block' : 'none';
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const deliverySelectRepair = document.getElementById('delivery-repair');
+  if (deliverySelectRepair) {
+    deliverySelectRepair.addEventListener('change', toggleCityFieldRepair);
+    toggleCityFieldRepair();
+  }
+
+  const allCitiesRepair = [
+    "תל אביב", "רמת גן", "גבעתיים", "חולון", "בת ים", "בני ברק", "פתח תקווה", "ראשון לציון", "הרצליה",
+    "אשדוד", "חיפה", "ירושלים", "נתניה", "מודיעין", "רחובות"
+  ];
+
+  const cityInputRepair = document.getElementById('city-repair');
+  const citySuggestionsRepair = document.getElementById('citySuggestionsRepair');
+
+  cityInputRepair.addEventListener('input', function () {
+    const value = this.value.trim();
+    citySuggestionsRepair.innerHTML = '';
+    if (!value) return citySuggestionsRepair.style.display = 'none';
+    const filtered = allCitiesRepair.filter(city => city.includes(value));
+    if (!filtered.length) return citySuggestionsRepair.style.display = 'none';
+    filtered.forEach(city => {
+      const div = document.createElement('div');
+      div.textContent = city;
+      div.style.padding = '8px';
+      div.style.cursor = 'pointer';
+      div.onclick = () => {
+        cityInputRepair.value = city;
+        citySuggestionsRepair.style.display = 'none';
+      };
+      citySuggestionsRepair.appendChild(div);
+    });
+    citySuggestionsRepair.style.display = 'block';
+  });
+
+  document.addEventListener('click', e => {
+    if (!cityInputRepair.contains(e.target) && !citySuggestionsRepair.contains(e.target)) {
+      citySuggestionsRepair.style.display = 'none';
+    }
+  });
+});
+</script>
+<script>
+function setupCleaningCalculator(wrapperId) {
+  const addBtn = document.getElementById("addCarpetButton");
+  if (addBtn) addBtn.addEventListener("click", addCarpetBlock);
+  
+  const container = document.getElementById(wrapperId);
+  if (!container) return;
+
+  let count = 0;
+  const addButton = container.querySelector("#addCarpetButton");
+  const blockArea = container.querySelector("#carpetBlocks");
+
+  function addCarpet() {
+    if (count >= 5) return;
+    count++;
+    const block = document.createElement("div");
+    block.className = "carpet-block";
+    block.setAttribute("data-index", count);
+    block.innerHTML = `
+      <div class="dimension-row">
+        <div class="dimension">
+          <label>אורך (ס\"מ):</label>
+          <input type="tel" pattern="[0-9]*" inputmode="numeric" class="length" step="1">
+        </div>
+        <div class="dimension">
+          <label>רוחב (ס\"מ):</label>
+          <input type="tel" pattern="[0-9]*" inputmode="numeric" class="width" step="1">
+        </div>
+      </div>
+      <div class="service-row">
+        <div class="service-block">
+          <label>סוג שטיח:</label>
+          <div class="option-card">
+            <input type="radio" name="type-${count}" value="machine" id="type${count}-m">
+            <label for="type${count}-m">עבודת מכונה<br><span class="price"> ₪95 למ"ר</span></label>
+          </div>
+          <div class="option-card">
+            <input type="radio" name="type-${count}" value="hand" id="type${count}-h">
+            <label for="type${count}-h">עבודת יד<br><span class="price"> ₪135 למ"ר</span></label>
+          </div>
+          <div class="option-card">
+            <input type="radio" name="type-${count}" value="silk" id="type${count}-s">
+            <label for="type${count}-s">שטיח משי לסוגיו<br><span class="price"> ₪190 למ"ר</span></label>
+          </div>
+        </div>
+        <div class="service-block">
+          <label>שירות משלים נוסף:</label>
+          <div class="option-card">
+            <input type="checkbox" class="smellTreatment" id="smell-${count}">
+            <label for="smell-${count}">חיטוי ריח שתן<br><span class="price"> ₪60 למ"ר</span></label>
+          </div>
+          <div class="option-card">
+            <input type="checkbox" class="stainTreatment" id="stain-${count}">
+            <label for="stain-${count}">טיפול בכתם<br><span class="price"> ₪750 סה"כ</span></label>
+          </div>
+          <div class="option-card">
+            <input type="checkbox" class="floodAddition" id="flood-${count}">
+            <label for="flood-${count}">תוספת להצפה<br><span class="price"> ₪50 למ"ר</span></label>
+          </div>
+        </div>
+      </div>
+    `;
+    blockArea.appendChild(block);
+  }
+
+  if (addButton) addButton.addEventListener("click", addCarpet);
+  const delivery = container.querySelector("#delivery");
+  const city = container.querySelector("#city");
+  const cityContainer = container.querySelector("#cityContainer");
+  const suggestions = container.querySelector("#citySuggestions");
+  const resultBox = container.querySelector("#result");
+  const errorBox = container.querySelector("#errorMsg");
+
+  const cities = ["תל אביב","רמת גן","גבעתיים","חולון","בת ים","בני ברק","פתח תקווה","ראשון לציון","הרצליה","אשדוד","חיפה","ירושלים","נתניה","מודיעין","רחובות"];
+
+  if (delivery && cityContainer) {
+    delivery.addEventListener("change", () => {
+      cityContainer.style.display = delivery.value === "delivery" ? "block" : "none";
+    });
+  }
+
+  if (city && suggestions) {
+    city.addEventListener("input", function () {
+      const val = this.value.trim();
+      suggestions.innerHTML = "";
+      if (!val) return suggestions.style.display = "none";
+      const filtered = cities.filter(c => c.includes(val));
+      if (!filtered.length) return suggestions.style.display = "none";
+      filtered.forEach(c => {
+        const div = document.createElement("div");
+        div.textContent = c;
+        div.style.padding = "8px";
+        div.style.cursor = "pointer";
+        div.onclick = () => {
+          city.value = c;
+          suggestions.style.display = "none";
+        };
+        suggestions.appendChild(div);
+      });
+      suggestions.style.display = "block";
+    });
+
+    document.addEventListener("click", e => {
+      if (!city.contains(e.target) && !suggestions.contains(e.target)) {
+        suggestions.style.display = "none";
+      }
+    });
+  }
+
+  const calcBtn = container.querySelector("button.red-button");
+  if (calcBtn) calcBtn.addEventListener("click", () => {
+    if (typeof calculateAll === "function") calculateAll();
+  });
+}
+</script>
+<script>
+
+  });
+});
+</script>
+<script>
+function activateRepairToggles() {
+  document.querySelectorAll('.collapsible-label').forEach(label => {
+    label.removeEventListener('click', toggleLabel);
+    label.addEventListener('click', toggleLabel);
+  });
+}
+
+function toggleLabel(event) {
+  event.currentTarget.classList.toggle('active');
+}
+</script>
+
+
+<script>
+function activateRepairToggles() {
+  document.querySelectorAll('#repairCalculator .collapsible-label').forEach(label => {
+    label.addEventListener('click', () => {
+      label.classList.toggle('active');
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  activateRepairToggles();
+});
+</script>
+
+
+<script>
+function activateRepairToggles() {
+  const repairLabels = document.querySelectorAll('#repairCalculator .collapsible-label');
+  repairLabels.forEach(label => {
+    label.addEventListener('click', function () {
+      this.classList.toggle('active');
+      const body = this.nextElementSibling;
+      if (body && body.classList.contains('collapsible-body')) {
+        if (this.classList.contains('active')) {
+          body.style.maxHeight = body.scrollHeight + "px";
+        } else {
+          body.style.maxHeight = null;
+        }
+      }
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  activateRepairToggles();
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.getElementById('repairCalculator').addEventListener('click', function (e) {
+    const label = e.target.closest('.collapsible-label');
+    if (label) {
+      label.classList.toggle('active');
+      const body = label.nextElementSibling;
+      if (body && body.classList.contains('collapsible-body')) {
+        if (label.classList.contains('active')) {
+          body.style.maxHeight = body.scrollHeight + "px";
+        } else {
+          body.style.maxHeight = null;
+        }
+      }
+    }
+  });
+});
+</script>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+  document.body.addEventListener("click", function(e) {
+    const label = e.target.closest(".collapsible-label");
+    if (label && label.nextElementSibling && label.nextElementSibling.classList.contains("collapsible-body")) {
+      label.classList.toggle("active");
+    }
+  });
+});
+</script>
+
+
+<script>
+function addRepairBlock() {
+  const container = document.getElementById("repairBlocks");
+  const index = container.querySelectorAll(".repair-block").length + 1;
+
+  const block = document.createElement("div");
+  block.className = "repair-block";
+  block.innerHTML = `
+    <div class="dimension-row">
+      <div class="dimension">
+        <label>אורך (ס\"מ):</label>
+        <input class="length-repair" inputmode="numeric" pattern="[0-9]*" type="tel"/>
+      </div>
+      <div class="dimension">
+        <label>רוחב (ס\"מ):</label>
+        <input class="width-repair" inputmode="numeric" pattern="[0-9]*" type="tel"/>
+      </div>
+    </div>
+    <div class="repair-groups-grid">
+      ${document.querySelector(".repair-groups-grid").innerHTML}
+    </div>
+  `;
+
+  container.appendChild(block);
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const addRepairBtn = document.getElementById("addRepairButton");
+  if (addRepairBtn) {
+    addRepairBtn.addEventListener("click", addRepairBlock);
+  }
+});
+</script>
+
+
+<script>
+function addRepairBlock() {
+  const container = document.getElementById("repairBlocks");
+  const index = container.querySelectorAll(".repair-block").length + 1;
+
+  const block = document.createElement("div");
+  block.className = "repair-block";
+  block.innerHTML = `
+    <div class="dimension-row">
+      <div class="dimension">
+        <label>אורך (ס\"מ):</label>
+        <input class="length-repair" inputmode="numeric" pattern="[0-9]*" type="tel"/>
+      </div>
+      <div class="dimension">
+        <label>רוחב (ס\"מ):</label>
+        <input class="width-repair" inputmode="numeric" pattern="[0-9]*" type="tel"/>
+      </div>
+    </div>
+    <div class="repair-groups-grid">
+      <div class="repair-group"><label class="collapsible-label">עבודות סרטים</label>
+        <div class="collapsible-body">
+          <div class="option-card"><input data-price="60" data-type="meter" type="checkbox"/><label>הדבקת סרט / סרט חם לקנט<br><span class="price">₪60 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="100" data-type="meter" type="checkbox"/><label>סרט P.V.C תפור לשטיח בעבודת יד<br><span class="price">₪100 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="75" data-type="meter" type="checkbox"/><label>סרט חיבור סרט חם<br><span class="price">₪75 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="100" data-type="meter" type="checkbox"/><label>סרט לשטיח עבודת מכונה<br><span class="price">₪100 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="100" data-type="meter" type="checkbox"/><label>סרט יוטה<br><span class="price">₪100 למ״ר</span></label></div>
+        </div>
+      </div>
+      <div class="repair-group"><label class="collapsible-label">תיכון ורסטורציה</label>
+        <div class="collapsible-body">
+          <div class="option-card"><input data-price="360" data-type="meter" type="checkbox"/><label>מתיחה<br><span class="price">₪360 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="950" data-type="meter" type="checkbox"/><label>רסטורציה צמר<br><span class="price">₪950 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="1150" data-type="meter" type="checkbox"/><label>רסטורציה משי<br><span class="price">₪1150 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="280" data-type="meter" type="checkbox"/><label>טיפול ברקע צהוב<br><span class="price">₪280 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="350" data-type="meter" type="checkbox"/><label>חיזוק ראש / מעוצר יד<br><span class="price">₪350 למ״ר</span></label></div>
+        </div>
+      </div>
+      <div class="repair-group"><label class="collapsible-label">חיתוך ותפירה</label>
+        <div class="collapsible-body">
+          <div class="option-card"><input data-price="75" data-type="meter" type="checkbox"/><label>חיתוך פרעושים / עש<br><span class="price">₪75 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="160" data-type="meter" type="checkbox"/><label>חיתוך שטיח ע״י / שאגי ע״י / שאגי מכונה<br><span class="price">₪160 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="35" data-type="meter" type="checkbox"/><label>חיתוך שטיח רגל<br><span class="price">₪35 למ״ר</span></label></div>
+        </div>
+      </div>
+      <div class="repair-group"><label class="collapsible-label">עבודות פרנזים</label>
+        <div class="collapsible-body">
+          <div class="option-card"><input data-price="60" data-type="meter" type="checkbox"/><label>הלבנת פרנזים בגלישת צבע<br><span class="price">₪60 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="580" data-type="meter" type="checkbox"/><label>פרנז עבודת יד / צמר / כותנה<br><span class="price">₪580 למ״ר</span></label></div>
+          <div class="option-card"><input data-price="780" data-type="meter" type="checkbox"/><label>פרנז מקורי<br><span class="price">₪780 למ״ר</span></label></div>
+        </div>
+      </div>
+      <div class="repair-group"><label class="collapsible-label">תפירת פינות</label>
+        <div class="collapsible-body">
+          <div class="option-card"><input data-price="280" data-type="unit" type="checkbox"/><label>תפירת 4 פינות עור<br><span class="price">₪280 ליחידה</span></label></div>
+        </div>
+      </div>
+      <div class="repair-group"><label class="collapsible-label">עבודות גיזום</label>
+        <div class="collapsible-body">
+          <div class="option-card"><input data-price="200" data-type="meter" type="checkbox"/><label>גיזוז חוטים בולטים<br><span class="price">₪200 למ״ר</span></label></div>
+        </div>
+      </div>
+    </div>
+  `;
+
+  container.appendChild(block);
+}
+</script>
+
+
+<script>
+function addRepairBlock() {
+  const container = document.getElementById("repairBlocks");
+  const index = container.querySelectorAll(".repair-block").length + 1;
+
+  const block = document.createElement("div");
+  block.className = "repair-block";
+  block.innerHTML = `
+    <div class="dimension-row">
+      <div class="dimension">
+        <label>אורך (ס\"מ):</label>
+        <input class="length-repair" inputmode="numeric" pattern="[0-9]*" type="tel"/>
+      </div>
+      <div class="dimension">
+        <label>רוחב (ס\"מ):</label>
+        <input class="width-repair" inputmode="numeric" pattern="[0-9]*" type="tel"/>
+      </div>
+    </div>
+    <div class="repair-groups-grid">
+      ${document.querySelector(".repair-groups-grid").innerHTML}
+    </div>
+  `;
+
+  container.appendChild(block);
+
+  // Повторная инициализация кликабельности для всех новых .collapsible-label
+  block.querySelectorAll('.collapsible-label').forEach(label => {
+    label.addEventListener('click', () => {
+      label.classList.toggle('active');
+      const body = label.nextElementSibling;
+      if (body && body.classList.contains("collapsible-body")) {
+        if (label.classList.contains("active")) {
+          body.style.maxHeight = body.scrollHeight + "px";
+        } else {
+          body.style.maxHeight = null;
+        }
+      }
+    });
+  });
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const addRepairBtn = document.getElementById("addRepairButton");
+  if (addRepairBtn) {
+    addRepairBtn.addEventListener("click", addRepairBlock);
+  }
+});
+</script>
+
+
+<script>
+function addRepairBlock() {
+  const container = document.getElementById("repairBlocks");
+  const blockIndex = container.querySelectorAll(".repair-block").length + 1;
+
+  const block = document.createElement("div");
+  block.className = "repair-block";
+
+  const services = [
+    {
+      title: "עבודות סרטים",
+      options: [
+        { label: "הדבקת סרט / סרט חם לקנט", price: 60, type: "meter" },
+        { label: "סרט P.V.C תפור לשטיח בעבודת יד", price: 100, type: "meter" },
+        { label: "סרט חיבור סרט חם", price: 75, type: "meter" },
+        { label: "סרט לשטיח עבודת מכונה", price: 100, type: "meter" },
+        { label: "סרט יוטה", price: 100, type: "meter" }
+      ]
+    },
+    {
+      title: "תיכון ורסטורציה",
+      options: [
+        { label: "מתיחה", price: 360, type: "meter" },
+        { label: "רסטורציה צמר", price: 950, type: "meter" },
+        { label: "רסטורציה משי", price: 1150, type: "meter" },
+        { label: "טיפול ברקע צהוב", price: 280, type: "meter" },
+        { label: "חיזוק ראש / מעוצר יד", price: 350, type: "meter" }
+      ]
+    },
+    {
+      title: "חיתוך ותפירה",
+      options: [
+        { label: "חיתוך פרעושים / עש", price: 75, type: "meter" },
+        { label: "חיתוך שטיח ע״י / שאגי ע״י / שאגי מכונה", price: 160, type: "meter" },
+        { label: "חיתוך שטיח רגל", price: 35, type: "meter" }
+      ]
+    },
+    {
+      title: "עבודות פרנזים",
+      options: [
+        { label: "הלבנת פרנזים בגלישת צבע", price: 60, type: "meter" },
+        { label: "פרנז עבודת יד / צמר / כותנה", price: 580, type: "meter" },
+        { label: "פרנז מקורי", price: 780, type: "meter" }
+      ]
+    },
+    {
+      title: "תפירת פינות",
+      options: [
+        { label: "תפירת 4 פינות עור", price: 280, type: "unit" }
+      ]
+    },
+    {
+      title: "עבודות גיזום",
+      options: [
+        { label: "גיזוז חוטים בולטים", price: 200, type: "meter" }
+      ]
+    }
+  ];
+
+  let groupsHTML = "";
+  services.forEach((group, groupIndex) => {
+    let groupHTML = `<div class="repair-group"><label class="collapsible-label">${group.title}</label><div class="collapsible-body">`;
+    group.options.forEach((opt, optIndex) => {
+      const id = `r-${blockIndex}-${groupIndex}-${optIndex}`;
+      groupHTML += `
+        <div class="option-card">
+          <input data-price="${opt.price}" data-type="${opt.type}" type="checkbox" id="${id}">
+          <label for="${id}">${opt.label}<br><span class="price">₪${opt.price} ${opt.type === "unit" ? "ליחידה" : "למ״ר"}</span></label>
+        </div>`;
+    });
+    groupHTML += `</div></div>`;
+    groupsHTML += groupHTML;
+  });
+
+  block.innerHTML = `
+    <div class="dimension-row">
+      <div class="dimension">
+        <label>אורך (ס\"מ):</label>
+        <input class="length-repair" inputmode="numeric" pattern="[0-9]*" type="tel"/>
+      </div>
+      <div class="dimension">
+        <label>רוחב (ס\"מ):</label>
+        <input class="width-repair" inputmode="numeric" pattern="[0-9]*" type="tel"/>
+      </div>
+    </div>
+    <div class="repair-groups-grid">${groupsHTML}</div>`;
+
+  container.appendChild(block);
+
+  // Повторно активируем кликабельность
+  block.querySelectorAll('.collapsible-label').forEach(label => {
+    label.addEventListener('click', () => {
+      label.classList.toggle('active');
+      const body = label.nextElementSibling;
+      if (body && body.classList.contains("collapsible-body")) {
+        if (label.classList.contains("active")) {
+          body.style.maxHeight = body.scrollHeight + "px";
+        } else {
+          body.style.maxHeight = null;
+        }
+      }
+    });
+  });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  const addRepairBtn = document.getElementById("addRepairButton");
+  if (addRepairBtn) {
+    addRepairBtn.addEventListener("click", addRepairBlock);
+  }
+});
+</script>
+
+
+<script>
+function updateTitle(section) {
+  const title = document.getElementById("mainTitle");
+  if (!title) return;
+  if (section === "clean") title.textContent = "מחשבון מחיר לניכוי שטיח";
+  else if (section === "repair") title.textContent = "מחשבון  לתיכון שטיח";
+  else if (section === "both") title.textContent = "מחשבון מחיר לניכוי ותיכון שטיח";
+  else title.textContent = "מחשבון מחיר לניכוי ותיכון שטיח";
+}
+</script>
+
+
+
+<script>
+function goBackToStart() {
+  localStorage.clear();
+  location.reload();
+}
+</script>
+
+<script>
+function goBackToStart() {
+  location.reload(true);
+}
+</script>
+
+</body>
